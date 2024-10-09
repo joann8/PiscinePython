@@ -4,7 +4,7 @@ from ft_filter import ft_filter
 
 def main():
     '''
-    This function output a list a world from a given string
+    This function outputs a list a world from a given string
     that have a length greater than a given interger.
     '''
     try:
@@ -27,7 +27,7 @@ def main():
         print(list_finale)
 
     except AssertionError as e:
-        print(f"AssertionError: {e}")
+        print(type(e).__name__ + ":", e)
 
 
 if __name__ == "__main__":
