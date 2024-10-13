@@ -1,12 +1,11 @@
 from load_image import ft_load
 import numpy as np
-import matplotlib.pyplot as plt  # ouvrrir une image sous forme de np.array
-import array
 from PIL import Image
+import matplotlib.pyplot as plt  # manipulation une img sous forme de np.array
 
 
-def cut_quare_image(img: array, x_start: int, y_start: int,
-                    length: int) -> array:
+def cut_quare_image(img: np.array, x_start: int, y_start: int,
+                    length: int) -> np.array:
     """
     Cut a square on an image provided as an array, and given
     some specific dimensions.
@@ -19,7 +18,7 @@ def cut_quare_image(img: array, x_start: int, y_start: int,
         print(type(e).__name__ + ":", e)
 
 
-def img_to_gray(img: array) -> array:
+def img_to_gray(img: np.array) -> np.array:
     '''
     Convert an image to GRAYSCALE
     '''
@@ -33,21 +32,21 @@ def img_to_gray(img: array) -> array:
     return img_gray
 
 
-def shape_array(img: array) -> array:
+def shape_array(img: np.array) -> np.array:
     '''
     Add  a cannal to a 2D array representing a gray image
     '''
     # Pour reconvertir l'image soit dans un format 3D (h x l x canaux),
     # on utilise np.expand_dims, qui  ajoute une nouvelle dimension à
-    # un tableau NP à l'emplacement spécifié
+    # un tableau NP à l'emplacement spécifié (ici la fin)
     img_shaped = np.expand_dims(img, axis=-1)
-    print(f"The shape of image is: {img.shape} or "
-          f"{img_shaped.shape}")
+    print(f"The shape of image is: {img_shaped.shape} or "
+          f"{img.shape}")
     print(img_shaped)
     return img_shaped
 
 
-def display_gray_img(img: array) -> None:
+def display_gray_img(img: np.array) -> None:
     '''
     Display a gray image directly on screen
     '''
@@ -58,11 +57,10 @@ def display_gray_img(img: array) -> None:
         plt.show()
 
 
-def transpose_array(img: array) -> array:
+def transpose_array(img: np.array) -> np.array:
     '''
     Transpose a given array
     '''
-
     # Tableau --> list --> Tableau
     tsp_list = []
     for i in range(len(img[0])):
@@ -80,7 +78,7 @@ def main():
     if img_np is None:
         return
     try:
-        img_zoom = cut_quare_image(img_np, 400, 200, 400)
+        img_zoom = cut_quare_image(img_np, 450, 100, 400)
         img_gray = img_to_gray(img_zoom)
         shape_array(img_gray)
         img_rotate = transpose_array(img_gray)

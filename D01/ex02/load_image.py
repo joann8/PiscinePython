@@ -1,10 +1,11 @@
 import numpy as np
 from PIL import Image
-import array
 
 
-def ft_load(path: str) -> array:
-
+def ft_load(path: str) -> np.array:
+    """
+    This functions loads an image as an np array.
+    """
     try:
         image = Image.open(path)
         image_array = np.array(image)

@@ -17,7 +17,7 @@ def ft_red(array) -> array:
     if array is None:
         return None
     red_img = np.copy(array)
-    red_img = red_img * [1, 0, 0]
+    red_img = red_img * [1, 0, 0]  # on ne garde que les rouge, le reste = 0
     display_img(red_img)
     return red_img
 
@@ -52,9 +52,10 @@ def ft_grey(array) -> array:
     green = array[:, :, 1]
     blue = array[:, :, 2]
 
-    grey_img = (red / 3 + green / 3 + blue / 3).astype(np.uint8)
+    grey_img = (red / 3 + green / 3 + blue / 3).astype(np.uint8)  # valeurs int
 
     grey_img = np.stack((grey_img, grey_img, grey_img), axis=2)
+    # le grey a la meme valeur partout
     display_img(grey_img)
     return grey_img
 
