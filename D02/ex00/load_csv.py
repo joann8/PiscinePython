@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def load(path: str) -> pd.DataFrame:
     try:
         data = pd.read_csv(path)
