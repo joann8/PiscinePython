@@ -10,13 +10,20 @@ def all_life(data: pd.DataFrame, country: str) -> None:
     country_data = data.loc[data['country'] == country]
     if country_data.empty:
         return None
-    years = country_data.columns[1:].astype(int)
-    lifeExpentency = country_data.iloc[0, 1:]
 
-    plt.plot(years, lifeExpentency)
-    plt.title(f'{country} Life expentancy projections')
+    # on prend les donnes du noms des colonnes et on convertit toutes les
+    # valeurs en int a partir de la 2e colonne
+    years = country_data.columns[1:].astype(int)
+
+    # iloc est une méthode qui permet d'indexer un DataFrame par position
+    # 0 fait référence à la 1re ligne du DataFrame (index 0).
+    lifeExpectancy = country_data.iloc[0, 1:]
+
+    # Mise en forme du  graph
+    plt.plot(years, lifeExpectancy)
+    plt.title(f'{country} Life expectancy projections')
     plt.xlabel('Year')
-    plt.ylabel('Life expectency')
+    plt.ylabel('Life expectancy')
     plt.xticks([x for x in range(1800, 2100, 40)])
     plt.show()
     return

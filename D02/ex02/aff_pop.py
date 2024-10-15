@@ -19,7 +19,7 @@ def convert_population(pop: str) -> float:
 
 def format_millions(x, pos):
     '''
-    Fonction qui formatte les millions en STR
+    Function that formats millions as float into a STR
     '''
     return f'{x * 1e-6:.0f}M'
 
@@ -30,9 +30,11 @@ def aff_pop(data: pd.DataFrame, country1: str, country2: str) -> None:
     '''
 
     # on enleve les donnees apres 2050
-    delete_cols = [col for col in data.columns if col.isdigit()
-                   and int(col) >= 2051]
-    data.drop(delete_cols, axis=1, inplace=True)
+    col_to_delete = [col for col in data.columns if col.isdigit()
+                     and int(col) >= 2051]
+    data.drop(col_to_delete, axis=1, inplace=True)
+    # axis = 1 --> colonne
+    # Inplace= true -> suppression directement sur le DataFrame original
 
     # on recupere les donnees de nos deux pays
     c1_data = data.loc[data['country'] == country1]
@@ -41,7 +43,7 @@ def aff_pop(data: pd.DataFrame, country1: str, country2: str) -> None:
         print(f"{country1} and/or {country2} not found in dataset")
         return None
 
-    # on convertit les donnees des pays en float
+    # on recupere et convertit les donnees des pays en float
     c1_data_raw = c1_data.iloc[0, 1:].values
     c1_data_clean = [convert_population(pop) for pop in c1_data_raw]
     c2_data_raw = c2_data.iloc[0, 1:].values
@@ -50,7 +52,7 @@ def aff_pop(data: pd.DataFrame, country1: str, country2: str) -> None:
     years = data.columns[1:].astype(int)
 
     # on construit notre graph
-    plt.plot(years, c2_data_clean, label=country2, color="blue")
+    plt.plot(years, c2_data_clean, label=country2)
     plt.plot(years, c1_data_clean, label=country1, color="green")
     plt.title('Population Projections')
     # ---> Formattage de l'abcisse
@@ -72,7 +74,7 @@ def main():
     if data is None:
         return
     aff_pop(data, 'France', 'Belgium')
-    aff_pop(data, 'Franc', 'Belgium')
+    # aff_pop(data, 'Franc', 'Belgium')
 
 
 if __name__ == "__main__":
