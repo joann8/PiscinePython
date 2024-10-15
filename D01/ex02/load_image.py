@@ -14,6 +14,7 @@ def ft_load(path: str) -> np.array:
 
     except FileNotFoundError:
         print("Le fichier n'existe pas.")
+        
     except IOError:
         print("Le fichier ne peut pas être ouvert. "
               "Assurez-vous qu'il s'agit d'une image valide.")

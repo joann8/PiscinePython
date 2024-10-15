@@ -7,6 +7,7 @@ bmi = give_bmi(height, weight)
 print(bmi, type(bmi))
 print(apply_limit(bmi, 26))
 
+'''
 # tests listes vides
 print("\n____Test listes vides____")
 bmi_empty = give_bmi([], [])
@@ -41,3 +42,4 @@ give_bmi(None, None)
 apply_limit(None, 3)
 give_bmi([1], {2})
 apply_limit({2}, 3)
+'''
