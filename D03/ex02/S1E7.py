@@ -11,12 +11,11 @@ class Baratheon(Character):
         self.hairs = 'dark'
 
     def __repr__(self):
-        """return representing Baratheon"""
-        repr = f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
-        return repr
+        """return str representing Baratheon"""
+        return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
     def __str__(self):
-        """return str Baratheon"""
+        """return str representing Baratheon"""
         return self.__repr__()
 
 
@@ -32,12 +31,11 @@ class Lannister(Character):
         self.hairs = 'light'
 
     def __repr__(self):
-        """return representing Lannister"""
-        repr = f"Vector: ('{self.family_name}', '{self.eyes}','{self.hairs}')"
-        return repr
+        """return str representing Lannister"""
+        return f"Vector: ('{self.family_name}', '{self.eyes}','{self.hairs}')"
 
     def __str__(self):
-        """return str Lannister"""
+        """return str representing Lannister"""
         return self.__repr__()
 
     # fonctionne sur la classe elle-même et prend cls comme 1er paramètre
