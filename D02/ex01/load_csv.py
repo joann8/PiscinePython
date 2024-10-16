@@ -3,7 +3,7 @@ import pandas as pd
 
 def load(path: str) -> pd.DataFrame:
     '''
-    Load a csv file
+    Load a csv file.
     '''
     try:
         data = pd.read_csv(path)

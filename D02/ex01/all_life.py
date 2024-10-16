@@ -26,7 +26,7 @@ def all_life(data: pd.DataFrame, country: str) -> None:
     plt.ylabel('Life expectancy')
     plt.xticks([x for x in range(1800, 2100, 40)])
     plt.show()
-    return
+    return None
 
 
 def main():

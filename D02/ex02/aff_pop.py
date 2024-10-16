@@ -17,7 +17,7 @@ def convert_population(pop: str) -> float:
     return float(pop.strip())
 
 
-def format_millions(x, pos):
+def format_millions(x, pos) -> str:
     '''
     Function that formats millions as float into a STR
     '''
@@ -31,7 +31,7 @@ def aff_pop(data: pd.DataFrame, country1: str, country2: str) -> None:
 
     # on enleve les donnees apres 2050
     col_to_delete = [col for col in data.columns if col.isdigit()
-                     and int(col) >= 2051]
+                     and int(col) > 2050]
     data.drop(col_to_delete, axis=1, inplace=True)
     # axis = 1 --> colonne
     # Inplace= true -> suppression directement sur le DataFrame original
@@ -57,7 +57,7 @@ def aff_pop(data: pd.DataFrame, country1: str, country2: str) -> None:
     plt.title('Population Projections')
     # ---> Formattage de l'abcisse
     plt.xlabel('Year')
-    plt.xticks(range(1800, 2051, 40))
+    plt.xticks(range(1800, 2050, 40))
     # ---> Formattage de l'ordonne
     plt.ylabel('Population')
     plt.yticks(range(int(20 * 1e6), int(70 * 1e6), int(20 * 1e6)))
@@ -66,7 +66,7 @@ def aff_pop(data: pd.DataFrame, country1: str, country2: str) -> None:
 
     # affchage du graph
     plt.show()
-    return
+    return None
 
 
 def main():

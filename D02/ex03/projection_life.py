@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 
-def format_GPD(x, pos):
+def format_GPD(x, pos) -> str:
     '''
     Function that formats GPD as float into a STR
     '''
@@ -47,7 +47,7 @@ def projection_life(data_life: pd.DataFrame, data_income: pd.DataFrame,
     plt.xticks([300, 1000, 10000])
     plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(format_GPD))
     plt.show()
-    return
+    return None
 
 
 def main():
