@@ -2,6 +2,8 @@ from S1E7 import Baratheon, Lannister
 
 
 class King(Baratheon, Lannister):
+    """Class King inherited from Baratheon and Lannister"""
+
     def __init__(self, first_name, is_alive=True):
         """Default Constructor Class King"""
         super().__init__(first_name, is_alive)

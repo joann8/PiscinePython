@@ -2,9 +2,10 @@ from S1E9 import Character
 
 
 class Baratheon(Character):
-    """Class Baratheon inherited from Character"""
+    """Representing the Baratheon family."""
+
     def __init__(self, first_name, is_alive=True):
-        """Default Constructor Class Stark"""
+        """Default Constructor Class Baratheon"""
         super().__init__(first_name, is_alive)
         self.family_name = 'Baratheon'
         self.eyes = 'brown'
@@ -21,11 +22,10 @@ class Baratheon(Character):
 
 
 class Lannister(Character):
-    """Class Lannister inherited from Character"""
-    family_name = 'Lannister'
+    """Representing the Lannister family."""
 
     def __init__(self, first_name, is_alive=True):
-        """Default Constructor Class Stark"""
+        """Default Constructor Class Lannister"""
         super().__init__(first_name, is_alive)
         self.family_name = 'Lannister'
         self.eyes = 'blue'

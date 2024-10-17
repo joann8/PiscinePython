@@ -13,4 +13,4 @@ Lyanna = Stark("Lyanna", False)
 print(Lyanna.__dict__)
 
 # erreur
-hodor = Character("hodor")
+# hodor = Character("hodor")

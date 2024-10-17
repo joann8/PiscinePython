@@ -9,27 +9,28 @@ class calculator:
         self.vector = vector
 
     def __add__(self, object) -> None:
-        ''' Addition'''
+        """Addition"""
         self.vector = [elmt + object for elmt in self.vector]
         print(self.vector)
         return None
 
     def __mul__(self, object) -> None:
-        ''' Multiplication'''
+        """Multiplication"""
         self.vector = [elmt * object for elmt in self.vector]
         print(self.vector)
         return None
 
     def __sub__(self, object) -> None:
-        ''' Substraction'''
+        """Substraction"""
         self.vector = [elmt - object for elmt in self.vector]
         print(self.vector)
         return None
 
     def __truediv__(self, object) -> None:
-        ''' Division'''
+        """Division"""
         if object == 0:
-            raise ZeroDivisionError("Cannot divide by 0")
+            print("Error: cannot divide by 0")
+            return
         self.vector = [elmt / object for elmt in self.vector]
         print(self.vector)
         return None

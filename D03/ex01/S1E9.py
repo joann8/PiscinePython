@@ -12,7 +12,7 @@ class Character(ABC):
         self.is_alive = is_alive
 
     def die(self):
-        """method : Set Alive bool to False"""
+        """Method die: Set Alive bool to False"""
         self.is_alive = False
 
 
