@@ -26,11 +26,11 @@ class Student:
 
         try:
             if 'id' in kwargs:
-                raise TypeError("Student.__init__() got an unexpected keyword\
-                                argument 'id'")
+                raise TypeError("Student.__init__() got an unexpected keyword "
+                                "argument 'id'")
             if 'login' in kwargs:
-                raise TypeError("Student.__init__() got an unexpected keyword\
-                                argument 'login'")
+                raise TypeError("Student.__init__() got an unexpected keyword "
+                                "argument 'login'")
             self.name = name
             self.surname = surname
             self.active = active

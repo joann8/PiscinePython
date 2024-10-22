@@ -12,25 +12,22 @@ def pow(x: int | float) -> int | float:
     return x ** x
 
 
-# La structure ci dessous est souvent utilisée dans les décorateurs ou
-# dans les fonctions qui conservent un état entre différents appels.
-# Le mot-clé nonlocal est essentiel ici pour permettre à la fonction
-# interne d'accéder et de modifier les variables de la fonction englobante,
-# créant ainsi un effet de fermeture (closure).
+# La structure ci dessous est souvent utilisée dans les fonctions qui
+# conservent un état entre différents appels.
+# Le mot-clé nonlocal permet à la fonction interne d'accéder et de
+# modifier les variables definies dans la fonction englobante (mais non
+# globale)
 
 def outer(x: int | float, function) -> object:
     """Returns an object that, when called, returns the result of the
-    arguments calculation.
-    """
+    arguments calculation."""
 
     count = 0
     if not callable(function):  # Vérifie que 'function' est bien une fonction
         raise TypeError(f"{function} n'est pas une fonction valide.")
 
     def inner() -> float:
-        """
-        Returns the result of the arguments calculation.
-        """
+        """Returns the result of the arguments calculation"""
         nonlocal x, count
         try:
             count += 1
@@ -39,5 +36,6 @@ def outer(x: int | float, function) -> object:
             x = function(x)
         except Exception as e:
             print(f"Error: {e}")
+            return None
         return x
     return inner

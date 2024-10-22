@@ -33,12 +33,9 @@ def quartile(values: list):
 def std(values: list):
     """Print the standard deviation"""
     n = len(values)
-    if n == 1:
-        std = 0
-    else:
-        mean = sum([v for v in values]) / n
-        sum_squared_diff = sum((v - mean) ** 2 for v in values)
-        std = (sum_squared_diff / n) ** 0.5
+    mean = sum([v for v in values]) / n
+    sum_squared_diff = sum((v - mean) ** 2 for v in values)
+    std = (sum_squared_diff / n) ** 0.5
     print(f'std : {std}')
     return
 
@@ -46,20 +43,15 @@ def std(values: list):
 def var(values: list):
     """Print the variance"""
     n = len(values)
-    if n == 1:
-        var = 0
-    else:
-        mean = sum([v for v in values]) / n
-        sum_squared_diff = sum((v - mean) ** 2 for v in values)
-        var = sum_squared_diff / n
+    mean = sum([v for v in values]) / n
+    sum_squared_diff = sum((v - mean) ** 2 for v in values)
+    var = sum_squared_diff / n
     print(f'var : {var}')
     return
 
 
 def ft_statistics(*args: any, **kwargs: any) -> None:
-    '''
-    Statistics
-    '''
+    """Print some statistics depending on args received"""
     # *args capture les arguments positionnels sous forme de tuple.
     # **kwargs capture les arguments nommés sous forme de dictionnaire.
     try:

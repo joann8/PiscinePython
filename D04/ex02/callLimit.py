@@ -1,14 +1,19 @@
 # Un fonction-décorateur est une fonction qui permet de modifier
 # le comportement d'une autre fonction sans changer son code source.
-# dans le code on appelle avec @callLimit
+# dans le code on l'appelle avec @callLimit
+# Un décorateur prend une fonction en argument, et retourne une nouvelle
+# fonction qui "encapsule" l'ancienne
+# Les wrappers (ou "fonctions enveloppantes") sont les fonctions internes
+# d'un décorateur qui ajoutent des comportements supplémentaires à la
+# fonction décorée.
 
 def callLimit(limit: int):
-    """A decorator function that takes a int limit as an argument"""
+    """A function that takes an int limit as an argument"""
     if not isinstance(limit, int):
         raise TypeError("Limit must be an int")
 
     def callLimiter(function):
-        """A decorator inner function that limits the number of times
+        """A decorator function that limits the number of times
         a function can be called."""
 
         count = 0
